@@ -2,7 +2,7 @@ import os
 import time
 from dotenv import load_dotenv
 
-load_dotenv()  # Načíta hodnoty z .env
+load_dotenv()  # Načíta moje hodnoty z .env
 
 def test_login(page):
     page.goto(os.getenv("EMAIL_URL"))
@@ -23,7 +23,7 @@ def test_login(page):
     page.click('#l\\:rcmrow0-1140011-0 a')
     page.click('button:has-text("Vložiť")')
 
-    # Vybrať súbor – očakávame file chooser
+    # Vybrať súbor – očakávam file chooser
     file_path = os.path.abspath("tajomnemiesta.html")
     with page.expect_file_chooser() as fc_info:
         page.click('button:has-text("Priložiť súbor")')  # klik na tlačidlo
@@ -35,7 +35,7 @@ def test_login(page):
 
     # Predmet
     page.fill('input#compose-subject', 'SergejTest')
-    page.click('input#compose-subject')  # kliknutie na input (ak to naozaj potrebuješ)
+    page.click('input#compose-subject')  # kliknutie 
 
     # Textarea
     page.fill('textarea#composebody', 'test Sergej')
